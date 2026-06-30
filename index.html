@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0e0b09" />
+<title>Joshua Vila — Electronic Press Kit</title>
+<meta name="description" content="Joshua Vila — Filipino R&B singer-songwriter based in Los Angeles. Soulful, late-night R&B. 180K+ streams. Latest release: GRAVITY." />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="Joshua Vila — Electronic Press Kit" />
+<meta property="og:description" content="Filipino R&B singer-songwriter · Los Angeles. Soulful late-night R&B. Latest release: GRAVITY." />
+<meta property="og:image" content="https://joshuavila.com/images/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://joshuavila.com" />
+<meta name="twitter:image" content="https://joshuavila.com/images/og.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0e0b09;
+    --bg-2:#16110d;
+    --panel:#1d1610;
+    --line:rgba(244,236,224,0.16);
+    --line-soft:rgba(244,236,224,0.09);
+    --fg:#f4ece0;
+    --muted:#bcab94;
+    --muted-2:#8a7c69;
+    --accent:#d99a4e;
+    --accent-soft:#caa86f;
+    --max:1160px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--fg);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* warm glow + grain overlays */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(70% 50% at 50% -8%, rgba(217,154,78,0.10) 0%, transparent 60%);}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='gg'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23gg)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;position:relative;z-index:1}
+  .serif{font-family:'Fraunces',Georgia,serif;font-weight:400;letter-spacing:-0.01em;line-height:1.0}
+  .eyebrow{font-size:11px;letter-spacing:0.34em;text-transform:uppercase;color:var(--accent-soft);font-weight:500}
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 28px;
+    padding-top:calc(20px + env(safe-area-inset-top, 0px));
+    transition:background .3s ease,padding .3s ease,backdrop-filter .3s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.nav.scrolled{
+    padding:13px 28px;
+    padding-top:calc(13px + env(safe-area-inset-top, 0px));
+    background:rgba(14,11,9,0.72);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .brand-logo{height:26px;width:auto;display:block;opacity:.96}
+  nav.links{display:flex;gap:30px;align-items:center}
+  nav.links a{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:500;transition:color .2s}
+  nav.links a:hover{color:#fff}
+  .nav-cta{border:1px solid var(--accent);color:var(--accent)!important;padding:9px 20px;border-radius:999px;transition:background .25s,color .25s}
+  .nav-cta:hover{background:var(--accent);color:#1a120a!important}
+  .burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px}
+  .burger span{width:26px;height:2px;background:var(--fg);display:block;transition:.3s}
+  .mobile-menu{position:fixed;inset:0;z-index:99;background:#0b0907;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 34px;transform:translateY(-100%);transition:transform .45s cubic-bezier(.7,0,.2,1)}
+  .mobile-menu.open{transform:translateY(0)}
+  .mobile-menu a{font-family:'Fraunces',serif;font-size:34px;color:var(--fg);padding:8px 0;border-bottom:1px solid var(--line-soft);display:flex;align-items:baseline;gap:14px}
+  .mobile-menu a small{font-family:'Inter';font-size:12px;color:var(--accent-soft);letter-spacing:.2em}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-img{position:absolute;inset:0;background-image:var(--hero-url);background-size:cover;background-position:center 22%;z-index:0;transform:scale(1.04);animation:heroZoom 14s ease-out forwards}
+  @keyframes heroZoom{to{transform:scale(1)}}
+  .hero-scrim{position:absolute;inset:0;z-index:1;background:
+     linear-gradient(180deg,rgba(14,11,9,.55) 0%,rgba(14,11,9,.10) 32%,rgba(14,11,9,.72) 78%,rgba(14,11,9,.98) 100%),
+     radial-gradient(80% 60% at 18% 86%, rgba(217,154,78,0.16) 0%, transparent 60%)}
+  .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:7vh}
+  .hero h1{font-size:clamp(64px,15vw,180px);font-weight:300;letter-spacing:-0.02em}
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--accent-soft)}
+  .hero-tag{margin-top:18px;display:flex;flex-wrap:wrap;gap:9px 18px;align-items:center;color:var(--muted);font-size:13.5px;letter-spacing:.03em}
+  .hero-tag .dot{width:4px;height:4px;border-radius:50%;background:var(--accent);display:inline-block}
+  .hero-tag b{color:var(--fg);font-weight:500}
+  .scroll-hint{position:absolute;bottom:24px;right:28px;z-index:2;font-size:10px;letter-spacing:.3em;color:var(--muted-2);text-transform:uppercase;display:flex;align-items:center;gap:10px}
+  .scroll-hint::after{content:"";width:38px;height:1px;background:var(--accent);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+
+  /* ===== STATS ===== */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .stats .grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:40px 22px;text-align:center;border-right:1px solid var(--line-soft)}
+  .stat:last-child{border-right:0}
+  .stat .num{font-family:'Fraunces',serif;font-size:clamp(36px,5vw,56px);line-height:1;color:var(--fg)}
+  .stat .num em{font-style:italic;color:var(--accent-soft)}
+  .stat .lbl{margin-top:10px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+
+  /* ===== SECTION SHELL ===== */
+  section.block{padding:104px 0;border-bottom:1px solid var(--line-soft);position:relative}
+  .sec-head{display:flex;align-items:baseline;gap:20px;margin-bottom:48px}
+  .sec-head .idx{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(20px,3vw,30px);color:var(--accent);flex-shrink:0;line-height:1}
+  .sec-head h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(34px,6vw,62px);letter-spacing:-0.02em;line-height:1.02}
+  .sec-head h2 em{font-style:italic;color:var(--accent-soft)}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:54px;align-items:start}
+  .about-photo{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative}
+  .about-photo img{width:100%;height:auto;display:block}
+  .about-grid p{color:#ddd2c2;font-size:17px;margin-bottom:20px;max-width:58ch}
+  .about-grid p.lead{font-family:'Fraunces',serif;font-size:25px;line-height:1.4;color:var(--fg);font-weight:300}
+  .about-grid p.lead em{font-style:italic;color:var(--accent-soft)}
+  .facts{border-top:1px solid var(--line);margin-top:28px}
+  .fact{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line-soft);font-size:14px}
+  .fact .k{color:var(--muted);letter-spacing:.03em}
+  .fact .v{color:var(--fg);text-align:right;font-weight:500}
+
+  /* MUSIC */
+  .music-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}
+  .spotify-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel)}
+  .spotify-card iframe{display:block;border:0;width:100%}
+  .rel-head{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--muted);margin-bottom:18px}
+  .rel{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 2px;border-bottom:1px solid var(--line-soft);transition:padding .2s,background .2s;border-radius:8px}
+  .rel:hover{padding-left:12px;padding-right:12px;background:rgba(217,154,78,0.06)}
+  .rel-l{display:flex;align-items:baseline;gap:14px;min-width:0}
+  .rel-yr{font-size:12px;color:var(--muted-2);font-variant-numeric:tabular-nums;flex-shrink:0;width:34px}
+  .rel-name{font-family:'Fraunces',serif;font-size:21px;color:var(--fg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .rel-name .new{font-family:'Inter';font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#1a120a;background:var(--accent);padding:3px 7px;border-radius:999px;margin-left:10px;vertical-align:middle;font-weight:600}
+  .rel-r{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .rel-streams{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+  .rel-arrow{color:var(--muted-2);transition:color .2s,transform .2s}
+  .rel:hover .rel-arrow{color:var(--accent);transform:translate(2px,-2px)}
+  .music-foot{margin-top:24px;display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:5px;transition:color .2s,border-color .2s}
+  .music-foot:hover{color:var(--accent);border-color:var(--accent)}
+
+  /* SHOWS */
+  #shows{background:var(--bg-2)}
+  .show{display:flex;align-items:center;gap:26px;border:1px solid var(--line);border-radius:18px;padding:24px 28px;background:linear-gradient(180deg,var(--panel),#140f0a);transition:transform .3s,border-color .3s,box-shadow .3s}
+  .show:hover{transform:translateY(-4px);border-color:rgba(217,154,78,.5);box-shadow:0 20px 44px -24px rgba(0,0,0,.85)}
+  .show-date{text-align:center;flex-shrink:0;width:78px;border-right:1px solid var(--line-soft);padding-right:24px}
+  .show-date .mo{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+  .show-date .day{font-family:'Fraunces',serif;font-size:42px;line-height:1;color:var(--fg)}
+  .show-date .yr{font-size:11px;color:var(--muted-2);margin-top:3px}
+  .show-info{flex:1;min-width:0}
+  .show-info .t{font-family:'Fraunces',serif;font-size:22px;color:var(--fg);line-height:1.2}
+  .show-info .loc{color:var(--muted);font-size:13.5px;margin-top:5px}
+  .show-cta{flex-shrink:0;border:1px solid var(--accent);color:var(--accent);padding:10px 20px;border-radius:999px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;transition:background .25s,color .25s}
+  .show-cta:hover{background:var(--accent);color:#1a120a}
+  .shows-note{margin-top:22px;color:var(--muted-2);font-size:13px}
+
+  /* GALLERY */
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .gal a{display:block;position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:3/4;background:#140f0a}
+  .gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+  .gal a:hover img{transform:scale(1.06)}
+  .gal a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(14,11,9,.5));opacity:0;transition:opacity .3s}
+  .gal a:hover::after{opacity:1}
+
+  /* CONTACT */
+  .contact{position:relative;background-image:linear-gradient(180deg,rgba(14,11,9,.82),rgba(14,11,9,.9)),var(--contact-url);background-size:cover;background-position:center 28%;background-repeat:no-repeat}
+  .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:54px;align-items:end}
+  .contact h2{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(40px,8vw,90px);letter-spacing:-0.02em;line-height:1}
+  .contact h2 em{font-style:italic;color:var(--accent-soft)}
+  .big-mail{display:inline-block;margin-top:26px;font-size:clamp(17px,2.3vw,25px);color:var(--fg);border-bottom:1px solid var(--accent);padding-bottom:6px;transition:color .2s}
+  .big-mail:hover{color:var(--accent)}
+  .contact .sub{margin-top:14px;color:var(--muted);font-size:15px}
+  .socials{display:flex;flex-direction:column;gap:2px}
+  .soc{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-top:1px solid var(--line-soft);transition:padding .2s}
+  .soc:last-child{border-bottom:1px solid var(--line-soft)}
+  .soc:hover{padding-left:10px}
+  .soc .p{color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-size:10.5px}
+  .soc .h{color:var(--fg);font-weight:500}
+  .soc .arrow{color:var(--accent)}
+
+  /* FOOTER */
+  footer{padding:54px 0;text-align:center}
+  .fbrand-logo{height:46px;width:auto;display:inline-block;opacity:.92}
+  footer .meta{margin-top:16px;color:var(--muted-2);font-size:12px;letter-spacing:.06em}
+  footer .meta b{color:var(--muted)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .hi{opacity:0;transform:translateY(30px);animation:heroRise 1s cubic-bezier(.2,.7,.2,1) forwards}
+  .hi.d1{animation-delay:.14s}.hi.d2{animation-delay:.34s}.hi.d3{animation-delay:.56s}
+  @keyframes heroRise{to{opacity:1;transform:none}}
+  nav.links a:not(.nav-cta){position:relative}
+  nav.links a:not(.nav-cta)::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  nav.links a:not(.nav-cta):hover::after{transform:scaleX(1)}
+
+  /* RESPONSIVE */
+  @media(max-width:880px){
+    nav.links{display:none}
+    .burger{display:flex}
+    .about-grid,.contact-grid,.music-grid{grid-template-columns:1fr;gap:36px}
+    .stats .grid{grid-template-columns:repeat(2,1fr)}
+    .stat{border-bottom:1px solid var(--line-soft)}
+    .stat:nth-child(2n){border-right:0}
+    .gal{grid-template-columns:1fr 1fr}
+    section.block{padding:78px 0}
+  }
+  @media(max-width:520px){
+    .wrap{padding:0 20px}
+    header.nav{padding:16px 20px}
+    .show{flex-wrap:wrap;gap:18px}
+    .show-date{width:auto;border-right:0;border-bottom:1px solid var(--line-soft);padding-right:0;padding-bottom:14px;display:flex;align-items:baseline;gap:12px;width:100%}
+    .show-cta{width:100%;text-align:center}
+    .sec-head{flex-direction:column;gap:6px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#top" aria-label="Joshua Vila — home"><img class="brand-logo" src="images/logo.png" alt="VILA" /></a>
+  <nav class="links">
+    <a href="#about">About</a>
+    <a href="#music">Music</a>
+    <a href="#shows">Shows</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact" class="nav-cta">Book</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about"><small>01</small>About</a>
+  <a href="#music"><small>02</small>Music</a>
+  <a href="#shows"><small>03</small>Shows</a>
+  <a href="#gallery"><small>04</small>Gallery</a>
+  <a href="#contact"><small>05</small>Book</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-img" id="heroImg"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <div class="eyebrow hi d1">Electronic Press Kit · 2026</div>
+      <h1 class="serif hi d2" style="margin-top:16px">Joshua <em>Vila</em></h1>
+      <div class="hero-tag hi d3">
+        <span><b>Filipino R&amp;B</b> Singer-Songwriter</span><span class="dot"></span>
+        <span>Los Angeles</span><span class="dot"></span>
+        <span>Soulful · Late-Night · Alt-R&amp;B</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap"><div class="grid">
+    <div class="stat"><div class="num">180K<em>+</em></div><div class="lbl">Streams</div></div>
+    <div class="stat"><div class="num">1.6K</div><div class="lbl">Monthly Listeners</div></div>
+    <div class="stat"><div class="num">7</div><div class="lbl">Releases</div></div>
+    <div class="stat"><div class="num">2024<em>–</em>26</div><div class="lbl">Active</div></div>
+  </div></div>
+</div>
+
+<!-- ABOUT -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="idx serif">01</span><h2>About <em>the artist</em></h2></div>
+    <div class="about-grid">
+      <figure class="about-photo reveal"><img src="images/about.jpg" alt="Joshua Vila in the studio" loading="lazy" /></figure>
+      <div class="reveal">
+        <p class="lead">Joshua Vila is a Filipino R&amp;B singer-songwriter out of Los Angeles, writing <em>soulful, late-night</em> records about love, distance and everything in between.</p>
+        <p>Equal parts smooth and confessional, Vila's sound sits in the modern alt-R&amp;B pocket — warm vocals, intimate production and lyrics that read like text messages you meant to send. Since 2024 he's released a steady run of singles, from the breakout <b style="color:var(--fg)">"REVEALING"</b> to the latest <b style="color:var(--fg)">"GRAVITY,"</b> together pulling in 180K+ streams.</p>
+        <p>On stage he's just as comfortable in an intimate room as on a festival platform, having performed across LA's R&amp;B and Filipino-American scenes — including upcoming nights with the <b style="color:var(--fg)">ise</b> collective.</p>
+        <div class="facts">
+          <div class="fact"><span class="k">Artist name</span><span class="v">Joshua Vila</span></div>
+          <div class="fact"><span class="k">Based in</span><span class="v">Los Angeles, CA</span></div>
+          <div class="fact"><span class="k">Genre</span><span class="v">R&amp;B · Alt-R&amp;B · Soul</span></div>
+          <div class="fact"><span class="k">Heritage</span><span class="v">Filipino-American</span></div>
+          <div class="fact"><span class="k">Latest release</span><span class="v">GRAVITY (2026)</span></div>
+          <div class="fact"><span class="k">For fans of</span><span class="v">Caelan Joseph · saie · NITAP</span></div>
+          <div class="fact"><span class="k">Management</span><span class="v">Kolosseum</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="block" id="music">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="idx serif">02</span><h2>The <em>music</em></h2></div>
+    <div class="music-grid">
+      <div class="reveal">
+        <div class="spotify-card">
+          <iframe data-testid="embed-iframe" style="border-radius:18px" src="https://open.spotify.com/embed/artist/42NL24rRW3VQXF1vwVgf3E?utm_source=generator&theme=0" width="100%" height="420" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <a class="music-foot" href="https://open.spotify.com/artist/42NL24rRW3VQXF1vwVgf3E" target="_blank" rel="noopener">Open full profile on Spotify ↗</a>
+      </div>
+      <div class="reveal">
+        <div class="rel-head">Selected discography</div>
+        <a class="rel" href="https://open.spotify.com/album/60jODvoPVs0JwovtXwUBiA" target="_blank" rel="noopener">
+          <span class="rel-l"><span class="rel-yr">2026</span><span class="rel-name">GRAVITY<span class="new">New</span></span></span>
+          <span class="rel-r"><span class="rel-streams">5,273</span><span class="rel-arrow">↗</span></span>
+        </a>
+        <a class="rel" href="https://open.spotify.com/album/3EHMtun6KE3r86rF3PZSIg" target="_blank" rel="noopener">
+          <span class="rel-l"><span class="rel-yr">2025</span><span class="rel-name">REVEALING</span></span>
+          <span class="rel-r"><span class="rel-streams">114,827</span><span class="rel-arrow">↗</span></span>
+        </a>
+        <a class="rel" href="https://open.spotify.com/album/6VVzDY8aSsuccEOzgDXci5" target="_blank" rel="noopener">
+          <span class="rel-l"><span class="rel-yr">2025</span><span class="rel-name">OMW2YOU</span></span>
+          <span class="rel-r"><span class="rel-streams">35,369</span><span class="rel-arrow">↗</span></span>
+        </a>
+        <a class="rel" href="https://open.spotify.com/album/5mAzMhjNXILeUVXNkrQWew" target="_blank" rel="noopener">
+          <span class="rel-l"><span class="rel-yr">2025</span><span class="rel-name">Got Mine</span></span>
+          <span class="rel-r"><span class="rel-streams">15,073</span><span class="rel-arrow">↗</span></span>
+        </a>
+        <a class="rel" href="https://open.spotify.com/album/2VlFWrCfnGB4HXlPcROTt6" target="_blank" rel="noopener">
+          <span class="rel-l"><span class="rel-yr">2025</span><span class="rel-name">Dear Miss Fine Shyt</span></span>
+          <span class="rel-r"><span class="rel-streams">10,261</span><span class="rel-arrow">↗</span></span>
+        </a>
+        <a class="rel" href="https://open.spotify.com/album/56X2eoPDcCHZ9t0SfX064I" target="_blank" rel="noopener">
+          <span class="rel-l"><span class="rel-yr">2024</span><span class="rel-name">Type of Love</span></span>
+          <span class="rel-r"><span class="rel-arrow">↗</span></span>
+        </a>
+        <a class="rel" href="https://open.spotify.com/album/6zGXQVKXy3H48267TxCqKo" target="_blank" rel="noopener">
+          <span class="rel-l"><span class="rel-yr">2024</span><span class="rel-name">Streets</span></span>
+          <span class="rel-r"><span class="rel-arrow">↗</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOWS -->
+<section class="block" id="shows">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="idx serif">03</span><h2>Live <em>shows</em></h2></div>
+    <div class="reveal">
+      <div class="show">
+        <div class="show-date">
+          <div class="mo">Aug</div>
+          <div class="day">29</div>
+          <div class="yr">2026</div>
+        </div>
+        <div class="show-info">
+          <div class="t">ise — with Joshua Vila &amp; donny daydream</div>
+          <div class="loc">1701 W Pico Blvd · Los Angeles, CA</div>
+        </div>
+        <a class="show-cta" href="https://open.spotify.com/concert/180Bk9x5NhIX9gaMiWohiS" target="_blank" rel="noopener">Tickets ↗</a>
+      </div>
+      <p class="shows-note">For booking and festival inquiries, get in touch below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="block" id="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="idx serif">04</span><h2>On <em>stage</em></h2></div>
+    <div class="gal reveal">
+      <a href="images/g4.jpg" target="_blank" rel="noopener"><img src="images/g4.jpg" alt="Joshua Vila performing live on a festival stage" loading="lazy" /></a>
+      <a href="images/g1.jpg" target="_blank" rel="noopener"><img src="images/g1.jpg" alt="Joshua Vila singing live" loading="lazy" /></a>
+      <a href="images/g2.jpg" target="_blank" rel="noopener"><img src="images/g2.jpg" alt="Joshua Vila on stage with the band" loading="lazy" /></a>
+      <a href="images/g3.jpg" target="_blank" rel="noopener"><img src="images/g3.jpg" alt="Joshua Vila performing an intimate set" loading="lazy" /></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="idx serif">05</span><h2>Let's <em>work</em>.</h2></div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="eyebrow">Bookings · Press · Features</div>
+        <a class="big-mail" href="mailto:chris@kolosseum.com?subject=Booking%20Inquiry%20%E2%80%94%20Joshua%20Vila">chris@kolosseum.com</a>
+        <div class="sub">Management · Kolosseum</div>
+      </div>
+      <div class="reveal">
+        <div class="socials">
+          <a class="soc" href="https://instagram.com/vilalala_" target="_blank" rel="noopener"><span><span class="p">Instagram</span><br><span class="h">@vilalala_</span></span><span class="arrow">↗</span></a>
+          <a class="soc" href="https://open.spotify.com/artist/42NL24rRW3VQXF1vwVgf3E" target="_blank" rel="noopener"><span><span class="p">Spotify</span><br><span class="h">Joshua Vila</span></span><span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img class="fbrand-logo" src="images/logo.png" alt="VILA" />
+    <div class="meta">© 2026 Joshua Vila · R&amp;B Singer-Songwriter · Los Angeles · <b>Managed by Kolosseum</b></div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30));
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => {
+    menu.classList.toggle('open');
+    burger.style.opacity = menu.classList.contains('open') ? '.4' : '1';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open'); burger.style.opacity = '1';
+  }));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+
+  // Hero + contact background images
+  document.getElementById('heroImg').style.setProperty('--hero-url', "url('images/hero.jpg')");
+  document.querySelector('.contact').style.setProperty('--contact-url', "url('images/g1.jpg')");
+</script>
+</body>
+</html>
